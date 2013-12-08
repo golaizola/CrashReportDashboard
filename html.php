@@ -2,9 +2,9 @@
 
 function show_output() {
 	$html = ob_get_clean();
-
-	@include "config.php";
-	$mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
+	
+@include "config.php";
+$mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
 
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
@@ -14,18 +14,18 @@ function show_output() {
 		<!-- <script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script> -->
 		<!-- <script type="text/javascript" language="javascript" src="googlejqueryapi.js"></script> -->
 		<!-- <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script> -->
-
-		<!-- <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script> -->
-
-		<script language="javascript" type="text/javascript" src="<?php echo $app_path?>/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo $app_path?>/dist/jquery-ui/js/jquery-ui.min.js"></script>
+		
+    	<!-- <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script> -->
+    	
+		<script language="javascript" type="text/javascript" src="dist/jquery.min.js"></script>
+		<script type="text/javascript" src="dist/examples/jquery-ui/js/jquery-ui.min.js"></script>
 
 		<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
-		<script type="text/javascript" language="javascript" src="<?php echo $app_path?>/dist/jquery.jqplot.min.js"></script>
-		<script type="text/javascript" src="<?php echo $app_path?>/dist/plugins/jqplot.pieRenderer.min.js"></script>
-		<script type="text/javascript" src="<?php echo $app_path?>/dist/plugins/jqplot.dateAxisRenderer.min.js"></script>
-		<script type="text/javascript" src="<?php echo $app_path?>/dist/plugins/jqplot.highlighter.min.js"></script>
-		<script type="text/javascript" src="<?php echo $app_path?>/dist/plugins/jqplot.cursor.min.js"></script>
+		<script type="text/javascript" language="javascript" src="dist/jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="dist/plugins/jqplot.pieRenderer.min.js"></script>
+		<script type="text/javascript" src="dist/plugins/jqplot.dateAxisRenderer.min.js"></script>
+		<script type="text/javascript" src="dist/plugins/jqplot.highlighter.min.js"></script>
+		<script type="text/javascript" src="dist/plugins/jqplot.cursor.min.js"></script>
 
 		<!-- Highchart -->
 		<script src="/js/highcharts.js" type="text/javascript"></script>
@@ -46,13 +46,17 @@ function show_output() {
 
 		</script>
 		
-		<link rel="stylesheet" type="text/css" href="<?php echo $app_path?>/dist/jquery-ui/css/ui-lightness/jquery-ui.min.css" />
-		<link rel="stylesheet" type="text/css" href="<?php echo $app_path?>/dist/examples/examples.min.css" />
+		<link rel="stylesheet" type="text/css" href="dist/examples/jquery-ui/css/smoothness/jquery-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="dist/examples/examples.min.css" />
+
+		<!-- <script class="include" type="text/javascript" src="dist/jquery.jqplot.min.js"></script> -->
+		<link class="include" type="text/css" href="dist/examples/jquery-ui/css/smoothness/jquery-ui.min.css" rel="Stylesheet" /> 
+  		<script class="include" type="text/javascript" src="dist/examples/jquery-ui/js/jquery-ui.min.js"></script>
 
 		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" /> -->
 
 		<!-- JQPlot CSS -->
-		<link rel="stylesheet" type="text/css" href="<?php echo $app_path?>/dist/jquery.jqplot.css" />
+		<link rel="stylesheet" type="text/css" href="dist/jquery.jqplot.css" />
 		<link rel="stylesheet" type="text/css" href="style.css"></link>
 
 		<style type="text/css">
@@ -94,7 +98,7 @@ function show_output() {
 			</script>
 
 	<div id="wrapper">
-		<a id="logo" href=""></a>
+		<a id="logo"href=""></a>
 		<div id="droid"></div>
 <!-- User Menu Start -->
 			<ul id="nav">
@@ -113,10 +117,13 @@ function show_output() {
 				}
 		?>
 				</a>
+			
 
-				<a onclick="window.location.href='<?php echo $app_path?>/logout.php'"> Logout </a>
+			<a onclick="javascript:window.location.href='logout.php'"> Logout </a>
 
 			</ul>
+
+	
 
 <?php
 
@@ -129,7 +136,8 @@ $res = mysql_query($sql);
 $rows = mysql_num_rows($res);
 ?>
 <ul class="dropdown" style="width:302px;height:<?echo ($rows*34);?>px;">
-<?
+
+<?	
 
 // if ($rows == 0) {
 // } else {
@@ -139,7 +147,7 @@ $rows = mysql_num_rows($res);
 //}
 
 ?>
-	</ul>
+	</ul>	
 
 	<div id="content">
 
