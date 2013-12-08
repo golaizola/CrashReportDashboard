@@ -181,5 +181,3 @@ $rows = mysql_num_rows($res);
 
 ob_start();
 register_shutdown_function("show_output");
-
-?>

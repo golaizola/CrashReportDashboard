@@ -154,5 +154,3 @@ $values = array(	//"id", // auto_increment
 	"settings_system",
 	"settings_secure",
 	"shared_preferences");
-
-?>

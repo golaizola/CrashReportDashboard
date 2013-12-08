@@ -39,5 +39,3 @@ echo "</div>";
 
 echo "<br /><br /><br /><br />";
 echo "<a href=\"register_app.php\">Register Application</a>";
-
-?>

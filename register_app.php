@@ -51,5 +51,3 @@ function generateRndString($length) {
 	}
 	return $string;
 }
-
-?>

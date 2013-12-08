@@ -46,5 +46,3 @@ function _check_db($username, $password) {
     else
         return false;
 }
-
-?>

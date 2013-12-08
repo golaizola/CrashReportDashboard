@@ -458,5 +458,3 @@ function display_crashes($status) {
 	}
 	echo "</tbody></table>\n";
 }
-
-?>

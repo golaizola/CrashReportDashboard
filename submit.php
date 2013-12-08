@@ -64,5 +64,3 @@ fputs($f, "Output of ".date("d/M/Y G:i:s").":\n".ob_get_clean());
 fclose($f);
 
 echo "What are you doing here?";
-
-?>

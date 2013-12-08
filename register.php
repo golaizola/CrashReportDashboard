@@ -132,5 +132,3 @@ function _check_db($username, $password) {
         return false;
     }
 }
-
-?>

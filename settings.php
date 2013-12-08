@@ -58,5 +58,3 @@ if(isset($_POST['oldpass']) && isset($_POST['new_pass']) && isset($_POST['reente
 		exit;
 	}
 }
-
-?>

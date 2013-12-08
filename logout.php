@@ -20,5 +20,3 @@ if(isset($_SESSION["username"])) {
 	echo "Not logged in.";
 	exit;
 }
-
-?>

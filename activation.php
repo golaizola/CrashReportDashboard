@@ -42,6 +42,3 @@ if (isset($email) && isset($key)) {
 } else {
 	echo '<div>An error Occured!</div>';
 }
-
-
-?>
