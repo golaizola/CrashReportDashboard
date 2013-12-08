@@ -186,13 +186,13 @@ function prepareOrientationPieChart() {
 
 $sql = "SELECT `appid` FROM `crashes` WHERE `issue_id` = '" . $_GET[issue_id] . "'";
 $res = mysql_query($sql);
-$row = mysql_result($res, 0);
+$row = htmlspecialchars(mysql_result($res, 0));
 
 // Show button
 echo '<div id="reportbuttons" style="float: right; margin-right: 100px;">';
-echo '<a class="button" href="javascript:setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_FIXED.'\', \'/reports.php?app=' . $row . '\');">mark as fixed</a> ';
-echo '<a class="button" href="javascript:setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_INVALID.'\', \'/reports.php?app='. $row . '\');">mark as invalid</a> ';
-echo '<a class="button" href="javascript:setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_NEW.'\', \'/reports.php?app=' . $row . '\');">mark as new</a> ';
+echo '<a class="button" onclick="setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_FIXED.'\', \'reports.php?app=' . $row . '\');return false">mark as fixed</a> ';
+echo '<a class="button" onclick="setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_INVALID.'\', \'reports.php?app='. $row . '\');return false">mark as invalid</a> ';
+echo '<a class="button" onclick="setStatusAndGo(\''.$_GET['issue_id'].'\', \''.STATE_NEW.'\', \'reports.php?app=' . $row . '\');return false">mark as new</a> ';
 echo "</div>\n";
 
 // Display reports
