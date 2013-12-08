@@ -28,7 +28,7 @@ function show_output() {
 		<script type="text/javascript" src="dist/plugins/jqplot.cursor.min.js"></script>
 
 		<!-- Highchart -->
-		<script src="/js/highcharts.js" type="text/javascript"></script>
+		<script src="dist/highcharts.js" type="text/javascript"></script>
 		
 
 
@@ -117,6 +117,8 @@ function show_output() {
 	<div id="content">
 
 	<?php echo $html; ?>
+
+	<div class="clear-both"></div>
 	</div>
 </div>
 	</body>
