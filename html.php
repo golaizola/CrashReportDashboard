@@ -2,9 +2,9 @@
 
 function show_output() {
 	$html = ob_get_clean();
-	
-@include "config.php";
-$mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
+
+	@include "config.php";
+	$mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
 
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
@@ -18,7 +18,7 @@ $mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
     	<!-- <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script> -->
     	
 		<script language="javascript" type="text/javascript" src="dist/jquery.min.js"></script>
-		<script type="text/javascript" src="dist/examples/jquery-ui/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="dist/jquery-ui/js/jquery-ui.min.js"></script>
 
 		<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
 		<script type="text/javascript" language="javascript" src="dist/jquery.jqplot.min.js"></script>
@@ -46,18 +46,16 @@ $mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
 
 		</script>
 		
-		<link rel="stylesheet" type="text/css" href="dist/examples/jquery-ui/css/smoothness/jquery-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="dist/jquery-ui/css/ui-lightness/jquery-ui.min.css" />
 		<link rel="stylesheet" type="text/css" href="dist/examples/examples.min.css" />
 
 		<!-- <script class="include" type="text/javascript" src="dist/jquery.jqplot.min.js"></script> -->
-		<link class="include" type="text/css" href="dist/examples/jquery-ui/css/smoothness/jquery-ui.min.css" rel="Stylesheet" /> 
-  		<script class="include" type="text/javascript" src="dist/examples/jquery-ui/js/jquery-ui.min.js"></script>
 
 		<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" /> -->
 
 		<!-- JQPlot CSS -->
 		<link rel="stylesheet" type="text/css" href="dist/jquery.jqplot.css" />
-		<link rel="stylesheet" type="text/css" href="style.css"></link>
+		<link rel="stylesheet" type="text/css" href="style.css" />
 
 		<style type="text/css">
 
@@ -90,86 +88,33 @@ $mysql = mysql_connect($mysql_server, $mysql_user, $mysql_password);
 	</head>
 
 	<body>
-			<script type="text/javascript">
-
-				console.log($('#logo'));
-
-
-			</script>
+	<script type="text/javascript">
+		console.log($('#logo'));
+	</script>
 
 	<div id="wrapper">
-		<a id="logo"href=""></a>
+		<a id="logo" href=""></a>
 		<div id="droid"></div>
 <!-- User Menu Start -->
 			<ul id="nav">
-			<a href="index.php"> Dashboard </a> 
-			<a class="appx"> My Apps </a>
+				<a href="index.php"> Dashboard </a> 
+				<a class="appx"> My Apps </a>
 
-		 
-			<a href="settings.php"> Settings </a>
-			
-			<a class="nav_user">	
-				logged in as:
-				<?php
-				session_start();
-				if (isset($_SESSION["username"])) {
-					echo $_SESSION["username"];
-				}
-		?>
-				</a>
-			
+				<a href="settings.php"> Settings </a>
 
-			<a onclick="javascript:window.location.href='logout.php'"> Logout </a>
+				<a class="nav_user">
+					logged in as: <?php
+					session_start();
+					if (isset($_SESSION["username"])) {
+						echo htmlspecialchars($_SESSION["username"]);
+					}
+					?></a>
+
+				<a onclick="window.location.href='logout.php'"> Logout </a>
 
 			</ul>
 
-	
-
-<?php
-
-$sql = "SELECT `id` FROM `user` WHERE `username` = '" . strtolower($_SESSION["username"]) . "'";
-$res = mysql_query($sql);
-$userid = mysql_result($res, 0);
-
-$sql = "SELECT `appname`, `appid` FROM `app` WHERE `userid` = $userid";
-$res = mysql_query($sql);
-$rows = mysql_num_rows($res);
-?>
-<ul class="dropdown" style="width:302px;height:<?echo ($rows*34);?>px;">
-
-<?	
-
-// if ($rows == 0) {
-// } else {
-	while ($tab = mysql_fetch_assoc($res)) {
-		echo "<a href=\"reports.php?app=" . $tab[appid] . "\">" . $tab[appname] . "</a>";
-	}
-//}
-
-?>
-	</ul>	
-
 	<div id="content">
-
-<!-- User Menu End -->
-
-
-	<?php
-//		session_start();
-//		echo "<div id=\"headerUserMenu\">";
-//		if (isset($_SESSION["username"])) {
-//			echo $_SESSION["username"];
-//		}
-//		echo " (<a href=\"settings.php\">Settings</a>)";
-//		echo "</div>";
-	?>
-
-<!--
-	<div id="logoutButtonDiv">
-	<input type="button" onclick="javascript:window.location.href='logout.php'" value="logout" />
-	</div>
--->
-
 
 	<?php echo $html; ?>
 	</div>
