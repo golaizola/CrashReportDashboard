@@ -46,6 +46,3 @@ if ($_GET[status] == STATE_NEW) {
 }
 display_crashes($status, $_GET[app]);
 mysql_close();
-
-?></body>
-</html>

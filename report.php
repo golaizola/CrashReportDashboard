@@ -530,7 +530,3 @@ var chart4 = new Highcharts.Chart({
 // while ($tab = mysql_fetch_assoc($res)) {
 // 	showReport($tab);
 // } -->
-
-
-</body>
-</html>
