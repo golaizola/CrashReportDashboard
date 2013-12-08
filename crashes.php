@@ -375,7 +375,7 @@ function display_crashes($status) {
 			echo "</tr>\n</thead>\n<tbody>\n";
 		}
 
-		echo '<tr id="id_'.$tab['id'].'" onclick="javascript:document.location=\'/report.php?issue_id='.$tab['issue_id'].'\';">'."\n";
+		echo '<tr class="js-link" id="id_'.$tab['id'].'" onclick="document.location=\'report.php?issue_id='.$tab['issue_id'].'\';">'."\n";
 		foreach ($tab as $k => $v) {
 			if ($k == "stack_trace") {
 				$lines = explode("\n", $v);
