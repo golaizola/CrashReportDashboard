@@ -13,7 +13,7 @@ if ($_GET[action] == "update_status") {
 	$obj['status'] = intval($_GET[status]);
 }
 
-$sql = mysql_update($obj, $sel, $selA);
+$sql = create_mysql_update($obj, $sel, $selA);
 $res = mysql_query($sql);
 
 if ($res) {
