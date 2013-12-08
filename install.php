@@ -44,7 +44,9 @@ if (!isset($_POST[submit])) {
 \$mysql_password = '$password';
 \$mysql_db = '$database';
 
-?>");
+\$app_path = '';
+
+");
 				fclose($file);
 				echo '<div class="ok">Wrote `config.php`.</div>';
 
@@ -156,5 +158,3 @@ if ($show_form) {
 		</form>
 <?php
 }
-
-?>
