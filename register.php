@@ -86,7 +86,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["pass
         $res = mysql_query($sql);
 
         if($res == true) {
-            $link = "http://crashreport.arvid-g.de/activation.php?email=" . $email . "&key=" . $activationkey . "";
+            $link = "http://".$_SERVER['HTTP_HOST']."/" . $app_path . "/activation.php?email=" . urlencode($email) . "&key=" . $activationkey . "";
             $emailadress = "$username <$email>";
             $subject = "Activate your Crash Report Account";
             $message = "Hello $username, <br /><br />
